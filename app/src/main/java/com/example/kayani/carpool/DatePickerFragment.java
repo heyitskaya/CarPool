@@ -3,19 +3,15 @@ package com.example.kayani.carpool;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
-import android.app.TimePickerDialog;
 import android.os.Bundle;
-import android.text.format.DateFormat;
-import android.widget.TimePicker;
 import android.widget.DatePicker;
-
 
 import java.util.Calendar;
 
 /**
  * Created by kayani on 4/10/16.
  */
-public class DatePickerFragment extends DialogFragment
+public  class DatePickerFragment extends DialogFragment
         implements DatePickerDialog.OnDateSetListener {
 
     @Override

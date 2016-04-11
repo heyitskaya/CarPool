@@ -1,19 +1,20 @@
 package com.example.kayani.carpool;
 //import android.app.DialogFragment;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-
-import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import java.util.Calendar;
+
 
 //right now this is only for people going to bradley
 public class ThirdActivity extends AppCompatActivity {
-
+    Calendar calender=Calendar.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,13 +32,38 @@ public class ThirdActivity extends AppCompatActivity {
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Intent secondIntent=getIntent();
-       // DialogFragment newFragment = new DatePickerFragment();
+      /**  Button dateButton=(Button) findViewById(R.id.dateButton);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM,
+                WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
+
+
+        dateButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                new DatePickerDialog(ThirdActivity.this,listener,calender.get(Calendar.YEAR),calender.get(Calendar.MONTH),calender.get(Calendar.DAY_OF_MONTH));
+            }
+
+        }); **/
+
+
+       //DialogFragment newFragment = new DatePickerFragment();
         //newFragment.show(getSupportFragmentManager(), "datePicker");
 
-    }
-
-    public void showDatePickerDialog(View v) {
 
     }
+
+
+   /** OnDateSetListener listener= new OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+            //do something with the date that the user chose
+        }
+    }; **/
+
+   /** public void showDatePickerDialog(View v) {
+        new DatePickerDialog(ThirdActivity.this,listener,calender.get(Calendar.YEAR),calender.get(Calendar.MONTH),calender.get(Calendar.DAY_OF_MONTH));
+    } **/
+
 
 }
