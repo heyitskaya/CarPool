@@ -36,6 +36,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.kayani.carpool.SecondActivity" />
         </activity>
+        <activity
+            android:name=".FourthActivity"
+            android:label="@string/title_activity_fourth"
+            android:parentActivityName=".ThirdActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.kayani.carpool.ThirdActivity" />
+        </activity>
     </application>
 
 </manifest>
