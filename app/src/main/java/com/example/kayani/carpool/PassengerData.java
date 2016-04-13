@@ -5,10 +5,11 @@ import java.util.Date;
 /**
  * Created by kayani on 4/12/16.
  */
-public final class Data {
+public final class PassengerData {
     private static String location;
     private static int time;
     private static Date date;
+    private static int day;
 
     public static String getLocation(){
         return location;
@@ -34,5 +35,12 @@ public final class Data {
         date=dateToSet;
     }
 
+    public static void setDay(int dayToSet){
+        day=dayToSet;
+    }
+
+    public static int getDay(){
+        return day;
+    }
 
 }

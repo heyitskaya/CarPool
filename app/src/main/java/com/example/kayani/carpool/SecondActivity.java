@@ -1,12 +1,16 @@
 package com.example.kayani.carpool;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
+/** select a location**/
 public class SecondActivity extends AppCompatActivity {
 
     @Override
@@ -29,7 +33,19 @@ public class SecondActivity extends AppCompatActivity {
     }
     public void goToThirdActivity(View view)
     {
+        Button bradleyButton= (Button) findViewById(R.id.bradleyButton);
+        Button loganButton=(Button) findViewById(R.id.loganButton);
+        switch(view.getId())
+        {
+            case R.id.bradleyButton:
+                PassengerData.setLocation("Bradley");
+                break;
+            case R.id.loganButton:
+                PassengerData.setLocation("Logan");
+                break;
+        }
         //create the intent
+        Log.d("location ", PassengerData.getLocation().toString());
         Intent secondIntent= new Intent(this,ThirdActivity.class);
         //start the intent
         startActivity(secondIntent);

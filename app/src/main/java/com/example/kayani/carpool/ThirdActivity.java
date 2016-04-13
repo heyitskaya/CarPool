@@ -7,13 +7,14 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 
 import java.util.Calendar;
 
 
-//right now this is only for people going to bradley
+//day of flight
 public class ThirdActivity extends AppCompatActivity {
     Calendar calender=Calendar.getInstance();
     @Override
@@ -49,6 +50,9 @@ public class ThirdActivity extends AppCompatActivity {
 
     }
     public void goToFourthActivity(View view ){
+        DatePicker datePicker=(DatePicker) findViewById(R.id.datePicker);
+        int day=datePicker.getDayOfMonth();
+        Log.d("day", Integer.toString(day));
         Intent thirdIntent= new Intent(this, FourthActivity.class);
         startActivity(thirdIntent);
 

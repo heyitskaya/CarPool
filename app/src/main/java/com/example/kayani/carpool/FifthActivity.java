@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+/** loading, please wait till we match you to a driver**/
 public class FifthActivity extends AppCompatActivity {
 
     @Override
