@@ -38,13 +38,16 @@ public class SecondActivity extends AppCompatActivity {
         switch(view.getId())
         {
             case R.id.bradleyButton:
+                SaveData.WriteToFile("The location we are trying to go to is Bradley");
                 PassengerData.setLocation("Bradley");
                 break;
             case R.id.loganButton:
+                SaveData.WriteToFile("The location we are trying to go to is Logan");
                 PassengerData.setLocation("Logan");
                 break;
         }
         //create the intent
+
         Log.d("location ", PassengerData.getLocation().toString());
         Intent secondIntent= new Intent(this,ThirdActivity.class);
         //start the intent

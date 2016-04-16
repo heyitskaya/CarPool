@@ -35,6 +35,14 @@ public class FourthActivity extends AppCompatActivity {
     }
 
     public void goToFifthActivity(View view){
+        Passenger currentPassenger= new Passenger(PassengerData.getLocation(),PassengerData.getDay(), PassengerData.getTime());
+        Log.d("lol location", PassengerData.getLocation());
+        Log.d("lol day",Integer.toString(PassengerData.getDay()));
+        Log.d("lol hour", Integer.toString(PassengerData.getTime()));
+        Log.d("------------","lol") ;
+        Log.d("passenger location ", currentPassenger.getLocation());
+        Log.d("passenger day ", Integer.toString(currentPassenger.getDay()));
+        Log.d("passenger hour ",Integer.toString(currentPassenger.getHour()));
         TimePicker timePicker= (TimePicker) findViewById(R.id.timePicker);
         PassengerData.setTime(timePicker.getHour());
         Log.d("hour chosen", Integer.toString(PassengerData.getTime()));

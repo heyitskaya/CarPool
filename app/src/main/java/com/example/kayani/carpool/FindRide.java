@@ -19,6 +19,8 @@ public class FindRide {
         //row: hour
         //column: day
 
+        passengerMatrix[day-1][hour-4].enqueue(p); //add this to the queue
+
 
     }
 
