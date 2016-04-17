@@ -1,63 +1,59 @@
 package com.example.kayani.carpool;
+import java.io.*;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 
-/**
- * Created by kayani on 4/16/16.
- */
+public final class SaveData { //cannot be extended
 
-public final class SaveData {
-    public static final String filePath="/Users/kayani/Desktop/Carpool"; //wrond dir bitch
-
-    private SaveData(){ //only purpose of this constructor is to stop instantiation
-
-    }
-    public static void WriteToFile(String content){
-        File file = new File(filePath);
-        try {
-            // if file doesnt exists, then create it
-            if (!file.exists()) {
-
-                file.createNewFile();
-            }
-
-            FileWriter fw = new FileWriter(file.getAbsoluteFile());
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(content);
-            bw.close();
-
-            System.out.println("Done");
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
+    private SaveData(){ //only purpose of the constructor is to stop
+        //instantiation
 
     }
 
-    public static void ReadFromFile(){
-        String line=null;
+    public static void writeToFile(String content){
+
         try{
-            FileReader fileReader= new FileReader(filePath);
-            BufferedReader bufferedReader= new BufferedReader(fileReader);
-            while((line=bufferedReader.readLine())!=null){
-                System.out.println(line);
-            }
-            bufferedReader.close();
-        }
-        catch(FileNotFoundException e){
-            e.printStackTrace();
-            System.out.println("File not found");
+            FileWriter fileWriter= new FileWriter("SaveDataExample.txt");
+            BufferedWriter writer= new BufferedWriter(fileWriter);
+
+            writer.write(content);
+            writer.newLine();
+            writer.write("kaya");
+            writer.newLine();
+            writer.write("lololol");
+
+
+//			/writer.flush();
+            writer.close();
         }
         catch(IOException e){
             e.printStackTrace();
-            System.out.println("There is an IOException");
+        }
+    }
+
+    public static void readFromFile(){
+        try{
+            File myFile= new File("SaveDataExample.txt");
+            FileReader fileReader= new FileReader(myFile);
+            BufferedReader reader= new BufferedReader(fileReader);
+            String line=null;
+            while((line=reader.readLine())!=null){
+                System.out.println(line);
+            }
+            reader.close();
+        }
+        catch(Exception e){
+            e.printStackTrace();
         }
 
+
     }
+
+
+
+    /**public static void main(String[] args){
+     SaveData.writeToFile("This is the beginning");
+     SaveData.readFromFile();
+     } **/
+
+
 }

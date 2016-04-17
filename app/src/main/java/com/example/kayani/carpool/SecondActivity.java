@@ -33,16 +33,17 @@ public class SecondActivity extends AppCompatActivity {
     }
     public void goToThirdActivity(View view)
     {
+        String passengerInfo="";
         Button bradleyButton= (Button) findViewById(R.id.bradleyButton);
         Button loganButton=(Button) findViewById(R.id.loganButton);
         switch(view.getId())
         {
             case R.id.bradleyButton:
-                SaveData.WriteToFile("The location we are trying to go to is Bradley");
+                passengerInfo+="Bradley, ";
                 PassengerData.setLocation("Bradley");
                 break;
             case R.id.loganButton:
-                SaveData.WriteToFile("The location we are trying to go to is Logan");
+                passengerInfo+="Logan, ";
                 PassengerData.setLocation("Logan");
                 break;
         }
