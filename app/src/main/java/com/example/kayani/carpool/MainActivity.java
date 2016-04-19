@@ -6,11 +6,18 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.telephony.SmsManager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
+    public EditText phoneNumber;
+    public EditText name;
+    public Button enterButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        phoneNumber=(EditText)findViewById(R.id.phoneNumber);
+        name=(EditText)findViewById(R.id.name);
+        enterButton=(Button)findViewById(R.id.enterInfo);
     }
 
     @Override
@@ -35,10 +45,36 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
+
     public void goToSecondActivity(View view)
     {
+        String number=phoneNumber.getText().toString();
+        String userName=name.getText().toString();
 
-        //Intent intent = new Intent(this, SecondActivity.class);
+        Log.d("number",number);
+        Log.d("userName",userName);
+        String sms="haha, try to send this";
+        try{
+            Log.d("did it send", "lolololol");
+
+            SmsManager smsManager= SmsManager.getDefault();
+            smsManager.sendTextMessage(number,null,sms,null,null);
+
+        /**    Intent sendIntent= new Intent(Intent.ACTION_VIEW);
+            sendIntent.putExtra("sms_body",sms);
+            sendIntent.setType("vnd.android-dir/mms-sms");
+            startActivity(sendIntent); **/
+            Log.d("blah","kaya");
+
+
+
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+
+
+
         Intent intent= new Intent(this,SecondActivity.class);
 
         startActivity(intent);
