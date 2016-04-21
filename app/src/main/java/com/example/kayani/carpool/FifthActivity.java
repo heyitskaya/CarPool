@@ -1,12 +1,14 @@
 package com.example.kayani.carpool;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 /** loading, please wait till we match you to a driver**/
 public class FifthActivity extends AppCompatActivity {
@@ -29,6 +31,11 @@ public class FifthActivity extends AppCompatActivity {
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Intent intent=getIntent();
+
+        TextView tv=(TextView)findViewById(R.id.textView6);
+        Typeface face=Typeface.createFromAsset(getAssets(),"Lobster.ttf");
+        tv.setTypeface(face);
+
     }
 
 }

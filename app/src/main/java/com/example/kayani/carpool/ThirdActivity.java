@@ -2,6 +2,7 @@ package com.example.kayani.carpool;
 //import android.app.DialogFragment;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.TextView;
 
 import java.util.Calendar;
 
@@ -38,12 +40,18 @@ public class ThirdActivity extends AppCompatActivity {
         DatePicker datePicker=(DatePicker) findViewById(R.id.datePicker);
        // datePicker.setMaxDate();
         int day= datePicker.getDayOfMonth();
+
+        PassengerData.setDay(day);
         int month=datePicker.getMonth();
         int year=datePicker.getYear();
 
         System.out.println("day "+day);
         System.out.println("month "+month);
         System.out.println("year "+year);
+        TextView tv=(TextView)findViewById(R.id.textView4);
+        Typeface face=Typeface.createFromAsset(getAssets(),"Lobster.ttf");
+        tv.setTypeface(face);
+
 
 
 

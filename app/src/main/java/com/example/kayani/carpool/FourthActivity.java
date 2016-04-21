@@ -2,6 +2,7 @@ package com.example.kayani.carpool;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.TimePicker;
 @TargetApi(23)
 /** for picking out a time**/
@@ -32,23 +34,31 @@ public class FourthActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Intent intent=getIntent();
+        TextView tv=(TextView)findViewById(R.id.textView5);
+        Typeface face=Typeface.createFromAsset(getAssets(),"Lobster.ttf");
+        tv.setTypeface(face);
+
     }
 
     public void goToFifthActivity(View view){
+
         Passenger currentPassenger= new Passenger(PassengerData.getLocation(),PassengerData.getDay(), PassengerData.getTime());
 
         TimePicker timePicker= (TimePicker) findViewById(R.id.timePicker);
         PassengerData.setTime(timePicker.getHour());
         FindRide findRide= new FindRide(currentPassenger);
-        if(currentPassenger.getDay()==20){
+        Log.d("day of departure",Integer.toString(PassengerData.getDay()));
+        if(PassengerData.getDay()==21){
             Log.d("we should be in here","kkkkkkk");
 
             Intent intent= new Intent(this,FifthActivity.class);
             startActivity(intent);
         }
-        else{
+      /**  else{
+            Intent intent= new Intent(this,RideNotFound.class);
+            startActivity(intent);
             Log.d("No ride to be found","No ride to be found");
-        }
+        } **/
 
     }
 

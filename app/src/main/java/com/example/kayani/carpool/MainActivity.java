@@ -13,6 +13,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.graphics.*;
 
 public class MainActivity extends AppCompatActivity {
     public EditText phoneNumber;
@@ -37,6 +39,18 @@ public class MainActivity extends AppCompatActivity {
         phoneNumber=(EditText)findViewById(R.id.phoneNumber);
         name=(EditText)findViewById(R.id.name);
         enterButton=(Button)findViewById(R.id.enterInfo);
+
+        TextView tv=(TextView)findViewById(R.id.textView);
+        Typeface face=Typeface.createFromAsset(getAssets(),"Lobster.ttf");
+        tv.setTypeface(face);
+
+        TextView tv2=(TextView)findViewById(R.id.textView2);
+        Typeface face2=Typeface.createFromAsset(getAssets(),"Lobster.ttf");
+        tv2.setTypeface(face);
+        enterButton=(Button)findViewById(R.id.enterInfo);
+        enterButton.setTypeface(Typeface.createFromAsset(getAssets(),"Lobster.ttf"));
+
+
     }
 
     @Override
@@ -60,10 +74,7 @@ public class MainActivity extends AppCompatActivity {
             SmsManager smsManager= SmsManager.getDefault();
             smsManager.sendTextMessage(number,null,sms,null,null);
 
-        /**    Intent sendIntent= new Intent(Intent.ACTION_VIEW);
-            sendIntent.putExtra("sms_body",sms);
-            sendIntent.setType("vnd.android-dir/mms-sms");
-            startActivity(sendIntent); **/
+
             Log.d("blah","kaya");
 
 
