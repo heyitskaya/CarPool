@@ -36,6 +36,13 @@ public class SecondActivity extends AppCompatActivity {
         Typeface face=Typeface.createFromAsset(getAssets(),"Lobster.ttf");
         tv.setTypeface(face);
 
+        //Button bradleyButton= (Button) findViewById(R.id.bradleyButton);
+      /**  Button loganButton=(Button) findViewById(R.id.loganButton);
+        loganButton.setTypeface(Typeface.createFromAsset(getAssets(),"Lobster.ttf"));
+
+        Button bradleyButton=(Button)findViewById(R.id.enterInfo);
+        bradleyButton.setTypeface(Typeface.createFromAsset(getAssets(),"Lobster.ttf")); **/
+
     }
     public void goToThirdActivity(View view)
     {

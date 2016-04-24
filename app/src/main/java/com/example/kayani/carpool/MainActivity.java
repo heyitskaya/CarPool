@@ -1,12 +1,13 @@
 package com.example.kayani.carpool;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,7 +15,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.graphics.*;
+
+import java.io.FileOutputStream;
 
 public class MainActivity extends AppCompatActivity {
     public EditText phoneNumber;
@@ -49,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
         tv2.setTypeface(face);
         enterButton=(Button)findViewById(R.id.enterInfo);
         enterButton.setTypeface(Typeface.createFromAsset(getAssets(),"Lobster.ttf"));
-
+      //  writeToFile();
+        Log.d("in onCreate()","");
 
     }
 
@@ -59,16 +62,33 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
+    public void writeToFile(){
+        Log.d("trying to write stuff","");
+        String filename = "fuckoff";
+        String string = "Hello world!";
+        FileOutputStream outputStream;
+        try {
+            Log.d("In try","");
+            outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
+            outputStream.write(string.getBytes());
+            outputStream.close();
+        } catch (Exception e) {
+            Log.d("In catch","");
+            Log.d("Exception was found ","");
+            e.printStackTrace();
+        }
+    }
 
     public void goToSecondActivity(View view)
     {
+
         String number=phoneNumber.getText().toString();
         String userName=name.getText().toString();
 
         Log.d("number",number);
         Log.d("userName",userName);
-        String sms="haha, try to send this";
-        try{
+        //String sms="haha, try to send this";
+       /**try{
             Log.d("did it send", "lolololol");
 
             SmsManager smsManager= SmsManager.getDefault();
@@ -82,7 +102,8 @@ public class MainActivity extends AppCompatActivity {
         }
         catch(Exception e){
             e.printStackTrace();
-        }
+        }  **/
+        writeToFile();
 
 
 

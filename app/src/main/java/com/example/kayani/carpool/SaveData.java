@@ -8,21 +8,11 @@ public final class SaveData { //cannot be extended
         //instantiation
 
     }
-
     public static void writeToFile(String content){
-
         try{
-            FileWriter fileWriter= new FileWriter("SaveDataExample.txt");
+            FileWriter fileWriter= new FileWriter("lol.txt",true);
             BufferedWriter writer= new BufferedWriter(fileWriter);
-
             writer.write(content);
-            writer.newLine();
-            writer.write("kaya");
-            writer.newLine();
-            writer.write("lololol");
-
-
-//			/writer.flush();
             writer.close();
         }
         catch(IOException e){
@@ -44,9 +34,8 @@ public final class SaveData { //cannot be extended
         catch(Exception e){
             e.printStackTrace();
         }
-
-
     }
+
 
 
 

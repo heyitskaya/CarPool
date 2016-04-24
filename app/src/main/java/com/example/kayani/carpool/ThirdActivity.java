@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
@@ -45,12 +46,15 @@ public class ThirdActivity extends AppCompatActivity {
         int month=datePicker.getMonth();
         int year=datePicker.getYear();
 
-        System.out.println("day "+day);
+        System.out.println("the day is "+Integer.toString(day));
+
         System.out.println("month "+month);
         System.out.println("year "+year);
         TextView tv=(TextView)findViewById(R.id.textView4);
         Typeface face=Typeface.createFromAsset(getAssets(),"Lobster.ttf");
         tv.setTypeface(face);
+        Button enterButton= (Button) findViewById(R.id.dayEnterButton);
+        enterButton.setTypeface(Typeface.createFromAsset(getAssets(),"Lobster.ttf"));
 
 
 
@@ -60,7 +64,8 @@ public class ThirdActivity extends AppCompatActivity {
     public void goToFourthActivity(View view ){
         DatePicker datePicker=(DatePicker) findViewById(R.id.datePicker);
         int day=datePicker.getDayOfMonth();
-        Log.d("day", Integer.toString(day));
+        // I think it is picking the right date here
+        Log.d("day kkkkkk", Integer.toString(day));
         Intent thirdIntent= new Intent(this, FourthActivity.class);
         startActivity(thirdIntent);
 
