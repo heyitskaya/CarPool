@@ -46,10 +46,10 @@ public class FindRide {
     }
 
     public boolean existsRide(){
-       if(driverMatrix[day][hour].dequeue()!=null) {
-           return true;
+       if(driverMatrix[day][hour].isEmpty()) {
+           return false;
        }
-        return false;
+        return true;
     }
 
 
