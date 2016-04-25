@@ -8,6 +8,7 @@ public class Passenger {
     private String location;
     private int day;
     private int hour;
+    private int currentDay;
 
 
     public Passenger(String locationInput, int dayInput, int hourInput ){

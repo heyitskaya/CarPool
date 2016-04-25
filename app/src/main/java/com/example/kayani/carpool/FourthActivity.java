@@ -54,8 +54,11 @@ public class FourthActivity extends AppCompatActivity {
 
         TimePicker timePicker= (TimePicker) findViewById(R.id.timePicker);
         PassengerData.setTime(timePicker.getHour());
+        Log.d("time of departure ",Integer.toString(PassengerData.getTime()));
+
         FindRide findRide= new FindRide(currentPassenger);
-        Log.d("day of departure",Integer.toString(PassengerData.getDay()));
+        Log.d("do you have a ride",String.valueOf(findRide.existsRide()));
+
         if(PassengerData.getDay()==21){
             Log.d("we should be in here","kkkkkkk");
 

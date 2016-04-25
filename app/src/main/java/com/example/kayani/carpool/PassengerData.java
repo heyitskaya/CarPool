@@ -10,6 +10,7 @@ public final class PassengerData {
     private static int time;
     private static Date date;
     private static int day;
+    private static int currentDay;
 
     public static String getLocation(){
         return location;
@@ -41,6 +42,15 @@ public final class PassengerData {
 
     public static int getDay(){
         return day;
+    }
+
+    public static void setCurrentDay(int currentDayToSet){
+        currentDay=currentDayToSet;
+
+    }
+
+    public static int getCurrentDay(){
+        return currentDay;
     }
 
 }

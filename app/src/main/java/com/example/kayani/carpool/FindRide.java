@@ -1,5 +1,9 @@
 package com.example.kayani.carpool;
 
+import android.util.Log;
+
+import java.util.Calendar;
+
 /**
  * Created by kayani on 4/12/16.
  */
@@ -8,6 +12,9 @@ package com.example.kayani.carpool;
 public class FindRide {
     private QueueLL<Passenger>[][] passengerMatrix; // 7 rows 24 columns
     private QueueLL<Driver>[][] driverMatrix= new QueueLL[7][24];
+    Calendar c= Calendar.getInstance();
+    private int day;
+    private int hour;
 
 
     public FindRide(Passenger p){
@@ -19,8 +26,11 @@ public class FindRide {
                 driverMatrix[i][j]= new QueueLL<Driver>();
             }
         }
-        int day=p.getDay();
-        int hour=p.getHour();
+        day=p.getDay()-PassengerData.getCurrentDay()-1;
+        Log.d("day of lolz", Integer.toString(day));
+        hour=p.getHour();
+        passengerMatrix[day][hour].enqueue(p);
+
         //row by column
         //row: hour
         //column: day
@@ -36,7 +46,10 @@ public class FindRide {
     }
 
     public boolean existsRide(){
-        return true;
+       if(driverMatrix[day][hour].dequeue()!=null) {
+           return true;
+       }
+        return false;
     }
 
 

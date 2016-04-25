@@ -38,18 +38,23 @@ public class ThirdActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Intent secondIntent=getIntent();
 
-        DatePicker datePicker=(DatePicker) findViewById(R.id.datePicker);
+    /**    DatePicker datePicker=(DatePicker) findViewById(R.id.datePicker);
        // datePicker.setMaxDate();
         int day= datePicker.getDayOfMonth();
+        Log.d("The day of month is ",Integer.toString(day));
 
         PassengerData.setDay(day);
+
         int month=datePicker.getMonth();
         int year=datePicker.getYear();
 
-        System.out.println("the day is "+Integer.toString(day));
+
 
         System.out.println("month "+month);
-        System.out.println("year "+year);
+        System.out.println("year "+year); **/
+        DatePicker datePicker=(DatePicker) findViewById(R.id.datePicker);
+        PassengerData.setCurrentDay(datePicker.getDayOfMonth());
+        Log.d("currentDay is ",Integer.toString(PassengerData.getCurrentDay()));
         TextView tv=(TextView)findViewById(R.id.textView4);
         Typeface face=Typeface.createFromAsset(getAssets(),"Lobster.ttf");
         tv.setTypeface(face);
@@ -64,8 +69,10 @@ public class ThirdActivity extends AppCompatActivity {
     public void goToFourthActivity(View view ){
         DatePicker datePicker=(DatePicker) findViewById(R.id.datePicker);
         int day=datePicker.getDayOfMonth();
+        PassengerData.setDay(day);
+
         // I think it is picking the right date here
-        Log.d("day kkkkkk", Integer.toString(day));
+        Log.d("day kkkkkk", Integer.toString(PassengerData.getDay()));
         Intent thirdIntent= new Intent(this, FourthActivity.class);
         startActivity(thirdIntent);
 

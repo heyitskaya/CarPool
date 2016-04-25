@@ -15,8 +15,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
 
 public class MainActivity extends AppCompatActivity {
     public EditText phoneNumber;
@@ -84,9 +87,27 @@ public class MainActivity extends AppCompatActivity {
 
         String number=phoneNumber.getText().toString();
         String userName=name.getText().toString();
-
+        String message="Kaya is the best";
         Log.d("number",number);
         Log.d("userName",userName);
+        try{
+            FileOutputStream fou= openFileOutput("zico.txt",MODE_WORLD_READABLE);
+            OutputStreamWriter osw= new OutputStreamWriter(fou);
+            try{
+                osw.write(message);
+                osw.flush();
+                osw.close();
+                Toast.makeText(getBaseContext(),"data saved",Toast.LENGTH_LONG).show();
+
+            }
+            catch(Exception e){
+
+                e.printStackTrace();
+            }
+        }
+        catch(FileNotFoundException e){
+            e.printStackTrace();
+        }
         //String sms="haha, try to send this";
        /**try{
             Log.d("did it send", "lolololol");
@@ -112,6 +133,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void readFile(){
+
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
