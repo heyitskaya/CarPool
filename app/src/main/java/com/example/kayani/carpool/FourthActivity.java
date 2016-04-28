@@ -58,10 +58,9 @@ public class FourthActivity extends AppCompatActivity {
 
         FindRide findRide= new FindRide(currentPassenger);
         Log.d("do you have a ride",String.valueOf(findRide.existsRide()));
+        boolean t=true;
 
-        if(findRide.existsRide()){
-           
-
+        if(t){
             Intent intent= new Intent(this,FifthActivity.class);
             startActivity(intent);
         }

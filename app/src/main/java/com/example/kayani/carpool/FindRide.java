@@ -20,13 +20,14 @@ public class FindRide {
     public FindRide(Passenger p){
 
         passengerMatrix= new QueueLL[7][24];
+        initDriverMatrix();
         for(int i=0;i<7;i++){
             for(int j=0;j<24;j++){
                 passengerMatrix[i][j]= new QueueLL<Passenger>(); //initialize the 2d array
-                driverMatrix[i][j]= new QueueLL<Driver>();
+               // driverMatrix[i][j]= new QueueLL<Driver>();
             }
         }
-        day=p.getDay()-PassengerData.getCurrentDay()-1;
+        day=p.getDay()-PassengerData.getCurrentDay();
         Log.d("day of lolz", Integer.toString(day));
         hour=p.getHour();
         passengerMatrix[day][hour].enqueue(p);
@@ -43,6 +44,13 @@ public class FindRide {
 
         } **/
 
+    }
+    public void initDriverMatrix(){
+        for(int i=0;i<7;i++){
+            for(int j=0;j<24;j++){
+                driverMatrix[i][j].enqueue(new Driver("bradley",i,j));
+            }
+        }
     }
 
     public boolean existsRide(){
